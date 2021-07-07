@@ -1,0 +1,14 @@
+.box{
+    width: 100px;
+    height: 75px;
+    border: 1px solid gold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.box:hover{
+    background-color: azure;
+    transition: 0.5s;
+}

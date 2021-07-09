@@ -1,8 +1,8 @@
 
 //Есть массив d1, кнопка b-1, input i-1. Напишите функцию f1, которая при нажатии читает i-1 и добавляем его в массив. После чего выводит массив в .out-1. Поскольку мы будем выводить массив d1 неоднократно, то давайте вывод массива сделаем отдельной функцией, showArr - она подготовлена. Изучите ее - это хороший способ оптимизировать код.
-let inp;
-let valueInp
-
+//let inp;
+//let valueInp
+/*
 let btn = document.querySelector('.btn');
 let res = document.querySelector('.res');
 inp = document.querySelector('.inp');
@@ -40,7 +40,7 @@ onBtn = () =>{
             })
     })
 }
-
+*/
 
 
 /*
@@ -106,3 +106,18 @@ for(let i = 0; i < 6; i++){
     res.innerHTML += "<br>";
 }
 */
+let inp = document.querySelector('.inp');
+let btn = document.querySelector('.btn');
+let allData = [];
+let inpVal = '';
+btn.addEventListener('click', ()=>{
+    inpVal = inp.value;
+    
+    allData.push({
+        text: inpVal
+    })
+
+    localStorage.setItem('data', JSON.stringify(allData));
+})
+
+

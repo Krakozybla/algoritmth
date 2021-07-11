@@ -106,6 +106,7 @@ for(let i = 0; i < 6; i++){
     res.innerHTML += "<br>";
 }
 */
+/*
 let inp = document.querySelector('.inp');
 let btn = document.querySelector('.btn');
 let allData = [];
@@ -119,5 +120,65 @@ btn.addEventListener('click', ()=>{
 
     localStorage.setItem('data', JSON.stringify(allData));
 })
+*/
 
+let data = [
+    Alex = {
+        'name': 'Alex',
+        'math': 1,
+        'litaratura': 1
+    },
+    Vlad = {
+        'name': 'Vlad',
+        'math': 5,
+        'litaratura': 2
+    },
+    Pavel = {
+        'name': 'Pavel',
+        'math': 3,
+        'litaratura': 5
+    },
+    Maria = {
+        'name': 'Maria',
+        'math': 2,
+        'litaratura': 1
+    },
+]
 
+let inp = document.querySelector('.inp');
+let  btn = document.querySelector('.btn');
+let inpVal = '';
+
+btn.addEventListener('click', ()=>{
+    inpVal = inp.value;
+    findStudent(inpVal);
+    inp.value = ' ';
+})
+
+const findStudent = val =>{
+    let cont = document.querySelector('.container');
+    cont.innerHTML = '';
+    let map = false;
+    for(let key in data){
+       if(data[key].name == val){
+            map = false
+           let li = document.createElement('li');
+           li.textContent = `Name: ${data[key].name}`
+           let math = document.createElement('li');
+           math.textContent = `MAth: ${data[key].math}`
+           let liter = document.createElement('li');
+           liter.textContent = `Literatura ${data[key].litaratura}`;
+           cont.appendChild(li);
+           cont.appendChild(math);
+           cont.appendChild(liter);
+       }else{
+           map = true;
+       }
+    }
+    if(map){
+        let result = document.querySelector('.res');
+        let res = document.createElement('li');
+        res.textContent = 'Such pupils is not find in dataBase'
+        result.appendChild(res);
+    }
+}

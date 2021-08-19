@@ -1,0 +1,106 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form{
+    width: 400px;
+    background-color: blueviolet;
+}
+.closa-modal{
+    position: relative;
+    width: 15px;
+    height: 15px;
+    display: block;
+    margin-left: auto;
+    margin-right: 15px;
+    margin-top: 10px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+.close-modal-line{
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: crimson;
+    left: 0;
+    transform: rotate(-45deg);
+    transition: 0.5s;
+    pointer-events: none;
+}
+.close-modal-lines{
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: crimson;
+    left: 0;
+    transform: rotate(45deg);
+    transition: 0.5s;
+    pointer-events: none;
+}
+.closa-modal:hover .close-modal-lines{
+    transform: rotate(-45deg);
+}
+.closa-modal:hover .close-modal-line{
+    transform: rotate(45deg);
+}
+
+.wrapper-input{
+    display: grid;
+    grid-auto-flow: row;
+    grid-gap: 20px;
+    justify-content: center;
+    padding: 25px;
+}
+
+.inp{
+    width: 300px;
+    padding: 10px;
+    outline: none;
+    color: black;
+}
+
+.send-data{
+    width: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 8px;
+    border: none;
+    border-radius: 10px;
+    color: #ffffff;
+    background-color: #db3ba7;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bolder;
+    transition: 0.5s;
+}
+
+.send-data:hover{
+    background-color: #12f56d;
+    color: #db3ba7;
+}
+
+
+.err{
+    border: 1px solid red;
+}
+
+.lab{
+    display: flex;
+    flex-direction: column;
+}
+
+.error{
+    color: red;
+    font-weight: bolder;
+}
+

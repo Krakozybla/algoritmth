@@ -1,0 +1,18 @@
+{
+  "people": [
+    {
+      "name": "Dmitriy",
+      "secondName": "Baranick",
+      "phone": "+80677754465",
+      "email": "baranick@mail.com",
+      "id": 1
+    },
+    {
+      "name": "Alexansdr",
+      "secondName": "Lavrov",
+      "phone": "+80677754465",
+      "email": "lavrovfp1995@gmail.com",
+      "id": 2
+    }
+  ]
+}

@@ -1,21 +1,6 @@
 const form = document.querySelector('.form');
 const inp = document.querySelectorAll('.inp');
 let obj = {};
-let allData = [];
-
-
-const sendData = async (url, data) => {
-    const response = await fetch(url, {
-      method: 'POST',
-      body: data,
-    });  
-    if (!response.ok) {
-      throw new Error(`Ошибка по адресу ${url}, статус ошибки ${response.status}`);
-    }  
-    return await response.json();
-}
-
-
 const pattern = {
     name: /.+/,
     secondName: /.+/,
@@ -23,55 +8,65 @@ const pattern = {
     email: /.+@.+\..+/,
 }
 
-const formValidationRule = {
+const formRuleValidation = {
     name: {
         rule: 'name',
-        msg: 'Please, writte dowm a correct name',
+        msg: 'Please, wrrite a correct name',
     },
     secondName: {
         rule: 'secondName',
-        msg: 'Please, writte down a correct secind name'
+        msg: 'Please, writte a correct surename',
     },
     phone: {
         rule: 'phone',
-        msg: 'Please, writte a correct phone number'
+        msg: 'Please, writte a correct phone number',
     },
     email: {
         rule: 'email',
-        msg: 'Please, writte choose a correct email adress'
-    },
+        msg: 'Please, writte a correct email address',
+    }
 }
-form.addEventListener('submit', function(e){
-    let map = false;
-   inp.forEach(item=>{
-        let formValidType = formValidationRule[item.name];
-        let validType = formValidType.rule;
-        let patterns = pattern[validType];
-        let val = item.value.trim();
+
+function req(e){
+    e.preventDefault();
+    inp.forEach(item=>{
+        
+        let formValid = formRuleValidation[item.name];
+        let vType = formValid.rule;
+        let patterns = pattern[vType];
         let errMsg = item.nextElementSibling;
+        let val = item.value.trim();
 
         if(patterns.test(val)){
-           item.classList.remove('err');
+            item.classList.remove('err');
             obj[item.name] = item.value;
-            errMsg.textContent = '';
-            map = true;
             item.value = '';
         }else{
             item.classList.add('err');
             obj = {};
-            errMsg.textContent = formValidType.msg;
-            allData = [];
-        } 
-   })
-   if(map){
-       allData.push(obj);
-       const forma = new FormData()
-       forma.set('info' , JSON.stringify(allData))
-       sendData('http://12312312312' , forma)
-   }else{
-       e.preventDefault();
-   }
-   obj = {};
-   console.log(allData);
-})
+            errMsg.textContent = formValid.msg;
+        }
+    })
+
+    let json = JSON.stringify(obj);
+    console.log(json);
+
+    const request = new XMLHttpRequest();
+    request.open('POST', 'http://localhost:3000/people');
+    request.setRequestHeader('content-type', 'application/json; charset=utf-8');
+    request.send(json);
+    request.addEventListener('load', function(){
+        if(request.status == 200){
+            let data = JSON.parse(request.response);
+            console.log(data);
+        }else{
+            console.error('Something went wrong');
+        }
+    })
+}
+form.addEventListener('submit', (e)=>req(e));
+
+
+
+
 

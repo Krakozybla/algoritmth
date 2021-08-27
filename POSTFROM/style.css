@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form{
+    max-width: 500px;
+    display: grid;
+    grid-auto-flow: row;
+    grid-gap: 15px;
+    padding: 20px;
+    background-color: aqua;
+}
+
+button{
+    background: chocolate;
+    border: none;
+    cursor: pointer;
+}

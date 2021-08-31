@@ -1,0 +1,20 @@
+{
+  "custumers": [
+    {
+      "name": "Alexansdr",
+      "surename": "Lavrov",
+      "phone": "+380713606571",
+      "email": "lavrovwebdev1995@gmail.com",
+      "product": "Trial",
+      "id": 1
+    },
+    {
+      "name": "Alexansdr",
+      "surename": "Пужаев",
+      "phone": "+890736353",
+      "email": "baranick@mail.com",
+      "product": "Trial",
+      "id": 2
+    }
+  ]
+}
